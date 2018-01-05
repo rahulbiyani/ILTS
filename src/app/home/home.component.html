@@ -1,0 +1,171 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Leave Management System
+        </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-4 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h4 class="text-center">Casual Leave</h4>
+                        <p class="text-center">{{leaveBalanceCount.clLeft}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h4 class="text-center">Leave Request</h4>
+                        <p class="text-center">{{leaveBalanceCount.clPlanned}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h4 class="text-center">Privilage Leave</h4>
+                        <p class="text-center">{{leaveBalanceCount.plLeft}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+
+            <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <div class="ILTS_LeaveDashobard_table" *ngIf="isManager">
+            <div class="box-header">
+                <h3 class="box-title">Leave Request</h3>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <table class="table table-bordered  holidayTable">
+                    <thead>
+                        <tr>
+                            <th>RequestID</th>
+                            <th>Emp ID</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="leaveRequestArray?.length >0">
+                        <tr *ngFor="let lr of leaveRequestArray">
+                            <td>{{lr.req_no}}</td>
+                            <td>{{lr.emp_code}}</td>
+                            <td>{{lr.leave_start_date | date:"dd-MMM-yyyy"}}</td>
+                            <td>{{lr.leave_end_date | date:"dd-MMM-yyyy"}}</td>
+                            <td>{{lr.reason}}</td>
+                            <td>
+<button (click)="approveLeave(lr.req_no)" class="btn btn-xs btn-success" ><i class="fa fa-check" ></i></button>
+<button (click)="rejectLeave(lr.req_no)" class="btn btn-xs btn-danger" ><i class="fa fa-times" ></i></button>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="leaveRequestArray?.length == 0">
+                <h4 class="text-center" >No Leave Requests</h4>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+        <div class="ILTS_LeaveDashobard_table">
+            <div class="box-header">
+                <h3 class="box-title">Leave History</h3>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <table class="table table-bordered  holidayTable">
+                    <thead>
+                        <tr>
+                            <th>RequestID</th>
+                            <th>Emp ID</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="leaveHistoryArray?.length >0">
+                        <tr *ngFor="let lh of leaveHistoryArray">
+                            <td>{{lh.req_no}}</td>
+                            <td>{{lh.emp_code}}</td>
+                            <td>{{lh.leave_start_date | date:"dd-MMM-yyyy"}}</td>
+                            <td>{{lh.leave_end_date | date:"dd-MMM-yyyy"}}</td>
+                            <td>{{lh.reason}}</td>
+                            <td>{{lh.status}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="leaveHistoryArray?.length == 0">
+                <h4 class="text-center">No Leave History</h4>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+    </section>
+    <!-- /.content -->
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg" style="margin-top:10%">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Leave History</h4>
+        </div>
+        <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>Request Id</label>
+            <input type="text" class="form-control" [(ngModel)]="currentrequest.req_no" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label>Start Date</label>
+            <input type="text" class="form-control" [(ngModel)]="sd"  [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label>End Date</label>
+            <input type="text" class="form-control" [(ngModel)]="ed" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label>Reason</label>
+            <input type="text" class="form-control" [(ngModel)]="currentrequest.reason" [ngModelOptions]="{standalone: true}" >
+          </div>
+           <div class="form-group">
+            <label>Status</label>
+            <input type="text" class="form-control" [(ngModel)]="currentrequest.status" [ngModelOptions]="{standalone: true}">
+          </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="addEmployee(lr.RequestID)" class="btn btn-primary" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+ 
+ 

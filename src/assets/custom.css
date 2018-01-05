@@ -1,0 +1,29 @@
+.ILTS-Logo {
+    width: 40%;
+    margin: 3% 0% 0% 22%;
+}
+
+.ILTS_LeaveDashobard_table {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.ILTS_customRow {
+    background: #d0d6da;
+    color: #144967;
+}
+
+.ILTS_Login_Logo {
+    width: 110px;
+}
+
+.ILTS_HolidayList_panel {
+    background-color: #ecf0f5;
+    text-align: center;
+}

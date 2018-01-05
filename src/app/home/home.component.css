@@ -1,0 +1,20 @@
+.IMSS_ILTS_holidayTitle{
+    text-align: left;
+    margin-left: 22%;
+
+}
+.ilts_home_tableHeight{
+    max-height: 150px;
+    overflow:scroll;
+}
+.ilts_BalanceSheet{
+    line-height: 5px;
+}
+.leavesLineHeight{
+    font-weight: 600;   
+    padding-bottom: 13px;
+}
+.content-wrapper{
+    background-color: #ecf0f5;
+    margin-left: 230px !important;
+}

@@ -1,0 +1,115 @@
+<header class="main-header">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+        <img src="assets/imss_logo.png" class="img-responsive ILTS-Logo">
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+    </nav>
+</header>
+
+
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <!-- <div class="pull-left image">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            </div> -->
+            <div class="pull-left info">
+                <p [title]="userName"></p>
+                <a href="#">
+                    <i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+
+            <li class="active  treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>ILTS</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active" [routerLinkActive]="['active']">
+                        <a routerLink="IMSS/ILTS/dashboard" routerLinkActive="active">
+                            <i class="fa fa-circle-o"></i> Dashboard</a>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a routerLink="IMSS/ILTS/RequestLeave" routerLinkActive="active">
+                            <i class="fa fa-circle-o"></i> Request Leave</a>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a routerLink="IMSS/ILTS/LeaveHistory" routerLinkActive="active">
+                            <i class="fa fa-circle-o"></i> Leave History</a>
+                    </li>
+
+                    <li  [routerLinkActive]="['active']" class="treeview">
+                        <a routerLink="IMSS/ILTS/HolidayList" routerLinkActive="active">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Holiday List</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-laptop"></i>
+                    <span>PAS</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="pages/UI/general.html">
+                            <i class="fa fa-circle-o"></i> General</a>
+                    </li>
+                    <li>
+                        <a href="pages/UI/icons.html">
+                            <i class="fa fa-circle-o"></i> Icons</a>
+                    </li>
+                    <li>
+                        <a href="pages/UI/buttons.html">
+                            <i class="fa fa-circle-o"></i> Buttons</a>
+                    </li>
+                    <li>
+                        <a href="pages/UI/sliders.html">
+                            <i class="fa fa-circle-o"></i> Sliders</a>
+                    </li>
+                    <li>
+                        <a href="pages/UI/timeline.html">
+                            <i class="fa fa-circle-o"></i> Timeline</a>
+                    </li>
+                    <li>
+                        <a href="pages/UI/modals.html">
+                            <i class="fa fa-circle-o"></i> Modals</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,28 @@
+.panel-heading {
+    background: #7d9dbd;
+    padding: 10px;
+    color: white;
+  
+    font-size: 20px;
+}
+.mb15{
+    margin-bottom: 8px;
+}
+select.form-control:not([size]):not([multiple]) {
+    height: 35px;
+}
+
+.requestLeave{
+    padding: 20px;
+}
+
+.panel{
+    border: 2px solid #7d9dbd;
+}
+
+.requestLeaveManger{
+    float: right;
+    color: #343a40;
+    font-weight: 600;
+    margin-right: 2%;
+}

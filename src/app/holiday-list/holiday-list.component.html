@@ -1,0 +1,70 @@
+
+  <div class="content-wrapper">
+<section class="content">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-4 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h4 class="text-center">Casual Leave</h4>
+                    <p class="text-center">{{leaveBalanceCount.clLeft}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h4 class="text-center">Leave Request</h4>
+                    <p class="text-center">{{leaveBalanceCount.clPlanned}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h4 class="text-center">Privilage Leave</h4>
+                    <p class="text-center">{{leaveBalanceCount.plLeft}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+
+        <!-- ./col -->
+    </div>
+   
+ 
+
+   <h4 class="IMSS_ILTS_holidayTitle">Holiday List</h4>
+
+      <div class="box-body no-padding">
+        
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let holiday of holidayArray;let i = index">
+                        <td>{{i +1}}</td>
+                        <td>{{holiday.day | date:"dd-MMM-yyyy"}}</td>
+                        <td>{{holiday.description}}</td>
+                      </tr>
+  
+                </tbody>
+            </table>
+
+     
+    
+      </div>
+ 
+</section>
+
+</div>

@@ -1,0 +1,19 @@
+.IMSS_login-box{
+    width:50%;
+    margin:10% 40%;
+}
+.IMSS_login-box-body{
+    width:50%
+}
+.ILTS_Login_Logo {
+    width: 110px;
+}
+.imms_login_box{
+    background-color:#eee;
+    padding: 23px;
+}
+.imss_login_page_background{
+    background-color: rgb(146, 177, 197);
+    height: 100%;
+    width: 100%;
+}

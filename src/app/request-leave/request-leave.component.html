@@ -1,0 +1,125 @@
+<div class="content-wrapper">
+ <section class="content-header">
+    <h1>
+        Leave Management System
+    </h1>
+
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-4 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h4 class="text-center">Casual Leave</h4>
+                    <p class="text-center">{{leaveBalanceCount.clLeft}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h4 class="text-center">Leave Request</h4>
+                    <p class="text-center">{{leaveBalanceCount.clPlanned}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h4 class="text-center">Privilage Leave</h4>
+                    <p class="text-center">{{leaveBalanceCount.plLeft}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+
+        <!-- ./col -->
+    </div>
+
+
+    <div class="panel ">
+      <div class="panel-heading text-center">Request Leave</div>
+      <div class="mb15"></div>
+      <div class="requestLeaveManger">Reporting Manager : Sridhar</div>
+      <form class="form-horizontal requestLeave">      
+      
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md-6">
+              <label for="exampleInputName">Start Date</label>
+              <input class="form-control" id="exampleInputName" [(ngModel)]="currentrequest.startDate" [ngModelOptions]="{standalone: true}" type="date" aria-describedby="nameHelp" placeholder="Enter first name">
+            </div>
+            <div class="col-md-6">
+              <label for="exampleInputLastName">End Date</label>
+              <input class="form-control" id="exampleInputLastName" [(ngModel)]="currentrequest.endDate" [ngModelOptions]="{standalone: true}" (change)="validEndDate(currentrequest.startDate,currentrequest.endDate)" type="date" aria-describedby="nameHelp" placeholder="Enter last name">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6">
+              <label>Leave Type</label>
+              <select class="form-control" [(ngModel)]="currentrequest.leaveType" [ngModelOptions]="{standalone: true}" (change)="validLeaveType()">
+                  <option value="">Select Leave Type</option>
+                  <option value="1">Casual Leave</option>
+                  <option value="2">Privilage Leave</option>
+                  <option value="3">Compansatory Leave</option>   
+      
+           </select>
+
+          </div>
+          <div class="col-md-6">
+              <label>Contact Number</label>
+              <input type="phone"  minlength="10" maxlength="15" class="form-control" placeholder="Ex: 0000000000" [(ngModel)]="currentrequest.phone" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="col-md-12 ilts_compDates" *ngIf="currentrequest.leaveType == 3">        
+            <div class="col-md-3">Compensatory Dates :</div>
+            <div class="col-md-3">
+            <input type="date" class="form-control" [(ngModel)]="compensaryDate[0]" [ngModelOptions]="{standalone: true}">
+    
+    
+            </div>
+            <div class="col-md-3">
+            <input type="date" class="form-control" [(ngModel)]="compensaryDate[1]" [ngModelOptions]="{standalone: true}">
+              
+            </div>
+    
+            <div class="col-md-3">
+            <input type="date" class="form-control" [(ngModel)]="compensaryDate[2]" [ngModelOptions]="{standalone: true}">
+              
+            </div>
+            
+          </div>
+    
+          
+  <div class="form-group">
+    <div class="col-md-6">
+        <label for="comment">Reason:</label>
+        <textarea class="form-control" rows="3" id="comment" [(ngModel)]="currentrequest.reason" [ngModelOptions]="{standalone: true}"></textarea>
+
+    </div>
+    <div class="col-md-6">
+        <label for="comment">Address:</label>
+        <textarea class="form-control" rows="3" id="comment" [(ngModel)]="currentrequest.address" [ngModelOptions]="{standalone: true}"></textarea>
+        </div>
+  </div>
+ 
+ 
+  <div class="text-center">
+    <button class="btn btn-primary" (click)="SubmitLeave()">Submit</button>
+     <button class="btn btn-default" type="cancel">Cancel</button>
+  </div>
+      </form>
+    </div>
+    </section>
+
+    </div>
+
